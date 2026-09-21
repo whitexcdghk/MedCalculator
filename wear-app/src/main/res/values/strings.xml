@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">MedCalculator</string>
     <string name="placeholder_message">MedCalculator\nIn costruzione</string>
+
+    <string name="action_next_home">NEXT</string>
+    <string name="action_next">next</string>
+    <string name="action_ok">ok</string>
+
+    <string name="label_dosage">Dosaggio</string>
+    <string name="label_concentration">Concentrazione</string>
+    <string name="unit_mg_per_kg">%s mg/kg</string>
+    <string name="unit_mg_per_ml">%s mg/mL</string>
+
+    <string name="picker_kg_description">kg</string>
+    <string name="picker_hg_description">etti</string>
+    <string name="picker_kg_label">kg</string>
+    <string name="picker_hg_label">etti</string>
+
+    <string name="result_weight_label">%1$s — peso %2$s kg</string>
+    <string name="result_volume">%s mL</string>
+    <string name="result_dose">dose %s mg</string>
 </resources>
