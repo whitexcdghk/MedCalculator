@@ -32,7 +32,7 @@ fun PesoScreen(
         bottomBand = {
             Chip(
                 onClick = {
-                    val weightKg = kgState.selectedOptionIndex + hgState.selectedOptionIndex / 10.0
+                    val weightKg = kgState.selectedOption + hgState.selectedOption / 10.0
                     onConfirm(weightKg)
                 },
                 label = { Text(stringResource(R.string.action_ok)) },
@@ -44,12 +44,12 @@ fun PesoScreen(
         Row(modifier = Modifier.fillMaxSize()) {
             Picker(
                 state = kgState,
-                contentDescription = { kgDescription },
+                contentDescription = kgDescription,
                 modifier = Modifier.weight(1f),
             ) { index -> Text("$index") }
             Picker(
                 state = hgState,
-                contentDescription = { hgDescription },
+                contentDescription = hgDescription,
                 modifier = Modifier.weight(1f),
             ) { index -> Text("$index") }
         }
