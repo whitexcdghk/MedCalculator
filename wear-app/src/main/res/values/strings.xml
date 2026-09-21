@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MedCalculator</string>
+    <string name="placeholder_message">MedCalculator\nIn costruzione</string>
+</resources>
