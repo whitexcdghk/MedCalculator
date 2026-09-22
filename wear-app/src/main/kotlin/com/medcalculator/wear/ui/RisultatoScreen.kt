@@ -5,15 +5,18 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
+import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.medcalculator.shared.DoseCalculator
 import com.medcalculator.wear.R
@@ -77,5 +80,19 @@ fun RisultatoScreen(
                 textAlign = TextAlign.Center,
             )
         }
+    }
+}
+
+@Preview(device = WearRoundPreviewDevice, showBackground = true, backgroundColor = 0xFF000000)
+@Composable
+private fun RisultatoScreenPreview() {
+    val viewModel = remember {
+        CalculatorViewModel().apply {
+            selectMedicine(medicines.first().id)
+            setWeight(2.5)
+        }
+    }
+    MaterialTheme {
+        RisultatoScreen(viewModel = viewModel, onDone = {})
     }
 }

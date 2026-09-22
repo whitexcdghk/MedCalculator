@@ -5,8 +5,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
+import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Picker
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.rememberPickerState
@@ -53,5 +55,13 @@ fun PesoScreen(
                 modifier = Modifier.weight(1f),
             ) { index -> Text("$index") }
         }
+    }
+}
+
+@Preview(device = WearRoundPreviewDevice, showBackground = true, backgroundColor = 0xFF000000)
+@Composable
+private fun PesoScreenPreview() {
+    MaterialTheme {
+        PesoScreen(onConfirm = {})
     }
 }

@@ -3,12 +3,15 @@ package com.medcalculator.wear.ui
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.foundation.lazy.items
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
+import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.medcalculator.wear.R
 
@@ -43,5 +46,13 @@ fun HomeScreen(
                 )
             }
         }
+    }
+}
+
+@Preview(device = WearRoundPreviewDevice, showBackground = true, backgroundColor = 0xFF000000)
+@Composable
+private fun HomeScreenPreview() {
+    MaterialTheme {
+        HomeScreen(viewModel = remember { CalculatorViewModel() }, onNext = {})
     }
 }
