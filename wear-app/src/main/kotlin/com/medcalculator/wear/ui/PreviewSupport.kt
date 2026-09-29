@@ -1,5 +1,17 @@
 package com.medcalculator.wear.ui
 
-/** Device spec for a small round Wear OS screen, used by every @Preview in this module. */
-internal const val WearRoundPreviewDevice =
-    "spec:shape=Round,width=384,height=384,unit=dp,dpi=320"
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
+
+/**
+ * Preview used by every screen in this module: Android Studio's built-in small round Wear OS
+ * device (~192dp across, close to the Galaxy Watch FE 40mm). `showSystemUi` is what makes
+ * Studio clip the preview to the round screen shape instead of a square canvas.
+ */
+@Preview(
+    device = Devices.WEAR_OS_SMALL_ROUND,
+    showSystemUi = true,
+    showBackground = true,
+    backgroundColor = 0xFF000000,
+)
+internal annotation class WearPreview

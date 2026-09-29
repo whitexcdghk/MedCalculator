@@ -5,9 +5,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.wear.compose.material.Chip
-import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Picker
 import androidx.wear.compose.material.Text
@@ -32,14 +29,12 @@ fun PesoScreen(
 
     ThreeBandScaffold(
         bottomBand = {
-            Chip(
+            BandActionChip(
+                label = stringResource(R.string.action_ok),
                 onClick = {
                     val weightKg = kgState.selectedOption + hgState.selectedOption / 10.0
                     onConfirm(weightKg)
                 },
-                label = { Text(stringResource(R.string.action_ok)) },
-                colors = ChipDefaults.primaryChipColors(),
-                modifier = Modifier.fillMaxSize(),
             )
         },
     ) {
@@ -58,7 +53,7 @@ fun PesoScreen(
     }
 }
 
-@Preview(device = WearRoundPreviewDevice, showBackground = true, backgroundColor = 0xFF000000)
+@WearPreview
 @Composable
 private fun PesoScreenPreview() {
     MaterialTheme {

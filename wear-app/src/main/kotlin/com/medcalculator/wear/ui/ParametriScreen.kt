@@ -12,10 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.wear.compose.material.Chip
-import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.medcalculator.wear.R
@@ -35,12 +32,10 @@ fun ParametriScreen(
 
     ThreeBandScaffold(
         bottomBand = {
-            Chip(
+            BandActionChip(
+                label = stringResource(R.string.action_next),
                 onClick = onNext,
                 enabled = medicine != null,
-                label = { Text(stringResource(R.string.action_next)) },
-                colors = ChipDefaults.primaryChipColors(),
-                modifier = Modifier.fillMaxSize(),
             )
         },
     ) {
@@ -88,7 +83,7 @@ private fun ParamValue(
     }
 }
 
-@Preview(device = WearRoundPreviewDevice, showBackground = true, backgroundColor = 0xFF000000)
+@WearPreview
 @Composable
 private fun ParametriScreenPreview() {
     val viewModel = remember {

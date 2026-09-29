@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.foundation.lazy.items
 import androidx.wear.compose.material.Chip
@@ -22,12 +21,10 @@ fun HomeScreen(
 ) {
     ThreeBandScaffold(
         bottomBand = {
-            Chip(
+            BandActionChip(
+                label = stringResource(R.string.action_next_home),
                 onClick = onNext,
                 enabled = viewModel.selectedMedicineId != null,
-                label = { Text(stringResource(R.string.action_next_home)) },
-                colors = ChipDefaults.primaryChipColors(),
-                modifier = Modifier.fillMaxSize(),
             )
         },
     ) {
@@ -49,7 +46,7 @@ fun HomeScreen(
     }
 }
 
-@Preview(device = WearRoundPreviewDevice, showBackground = true, backgroundColor = 0xFF000000)
+@WearPreview
 @Composable
 private fun HomeScreenPreview() {
     MaterialTheme {

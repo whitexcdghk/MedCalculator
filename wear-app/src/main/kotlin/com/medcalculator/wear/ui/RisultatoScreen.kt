@@ -11,11 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.wear.compose.material.Chip
-import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.medcalculator.shared.DoseCalculator
@@ -43,14 +40,12 @@ fun RisultatoScreen(
 
     ThreeBandScaffold(
         bottomBand = {
-            Chip(
+            BandActionChip(
+                label = stringResource(R.string.action_ok),
                 onClick = {
                     viewModel.resetForNewCalculation()
                     onDone()
                 },
-                label = { Text(stringResource(R.string.action_ok)) },
-                colors = ChipDefaults.primaryChipColors(),
-                modifier = Modifier.fillMaxSize(),
             )
         },
     ) {
@@ -83,7 +78,7 @@ fun RisultatoScreen(
     }
 }
 
-@Preview(device = WearRoundPreviewDevice, showBackground = true, backgroundColor = 0xFF000000)
+@WearPreview
 @Composable
 private fun RisultatoScreenPreview() {
     val viewModel = remember {
